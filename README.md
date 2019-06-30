@@ -1,5 +1,5 @@
-# joguinhoC: questionable little games
+# joguinhoC: questionable little projects
 Simple, rudimentary, sketchy and abecedarian
-minigames made when I was learning C for Windows.
+programs made when I was learning C for Windows.
 
-    The worst programming pratices are here.
+    Some of the worst programming pratices are here.
