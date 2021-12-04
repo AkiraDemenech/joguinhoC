@@ -43,6 +43,7 @@ int musical (int tecla) {
 		tecla -= 7;
 		if(tecla < 128)
 			tecla -= 25;
+		printf("%c",tecla);
 	}
 		
 	switch (tecla) {
@@ -62,7 +63,7 @@ int musical (int tecla) {
 		case 'O': return 14; break;
 		case 'L': return 15; break;
 		case 'P': return 16; break;
-		case 'Ç': return 17; break;
+		case 128: return 17; break;
 	}
 	
 	return 0;
@@ -147,12 +148,13 @@ void music (int opmode) {
 	
 	do {
 		
-		printf("\n    ");
+		printf("\n\t");
 		
 		if(opmode==3) {
 			
 			if(kbhit()) {
 				nota = getch();
+				
 				if(nota==8 || nota==27 || nota==48)
 					st = 0;
 			}
@@ -179,6 +181,7 @@ void music (int opmode) {
 				nota = 0;
 				if(kbhit()) {
 					nota = getch();
+					printf("%c",nota);
 					if(nota==27 || nota==8)
 						st = 0;
 				}
@@ -187,6 +190,7 @@ void music (int opmode) {
 				
 			} while(tempo<0.1 && musical(nota)==0 && st==1);
 			tempo = 0;
+			
 			nota = musical(nota);
 			fprintf(musica, "%c", hex[nota]);
 		}
